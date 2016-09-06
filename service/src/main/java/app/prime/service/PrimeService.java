@@ -1,4 +1,4 @@
-package app.prime;
+package app.prime.service;
 
 import java.util.List;
 
@@ -6,6 +6,6 @@ import java.util.List;
  * @author Vladimir Ivanov
  */
 public interface PrimeService {
-    List<Long> findPrimes(long number);
+    List<Long> findPrimeDivides(long number);
     boolean isPrime(long number);
 }
