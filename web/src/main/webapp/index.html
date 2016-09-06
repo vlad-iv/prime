@@ -6,18 +6,38 @@
 </head>
 <body>
 <h1>Простые множители</h1>
-<label for="number">Введите число: </label>
-<input id="number" name="number" value="10"/>
+<h3>Разложение на множители</h3>
+<label for="primeNumber">Введите число: </label>
+<input id="primeNumber" name="number" value="123456789"/>
 <br/>
-<button id="findPrimes" onclick="findPrimes();">Найти простые множители</button>
+<button id="primeFindButton" onclick="findPrimes('prime');">Найти простые множители</button>
 <br/>
-<h3>Простые множителя для числа: <span id="currentNumber"></span></h3>
+<h4>Простые множителя для числа: <span id="primeCurrentNumber"></span></h4>
+<p id="primeResult" style="font: bold;"></p>
 
-<p id="currentPrimes"></p>
+<br />
+<h3>Разложение на множители 1</h3>
+<label for="prime1Number">Введите число: </label>
+<input id="prime1Number" name="number1" value="1000000"/>
+<br/>
+<button id="prime1FindButton" onclick="findPrimes('prime1');">Найти простые множители</button>
+<br/>
+<h4>Простые множителя для числа: <span id="prime1CurrentNumber"></span></h4>
+<p id="prime1Result" style="font: bold;"></p>
+
+<br />
+<h4>Разложение на множители 2</h4>
+<label for="prime2Number">Введите число: </label>
+<input id="prime2Number" name="number2" value="9999999"/>
+<br/>
+<button id="prime2FindButton" onclick="findPrimes('prime2');">Найти простые множители</button>
+<br/>
+<h4>Простые множителя для числа: <span id="prime2CurrentNumber"></span></h4>
+<p id="prime2Result" style="font: bold;"></p>
 
 <script>
-    function findPrimes() {
-        var number = document.getElementById("number").value;
+    function findPrimes(id) {
+        var number = document.getElementById(id+"Number").value;
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "/rest/prime/find/" + number, true);
         xhr.send();
@@ -26,22 +46,22 @@
                 return;
             }
 
-            document.getElementById("findPrimes").disabled = false;
+            document.getElementById(id+"FindButton").disabled = false;
 
             if (xhr.status == 200) {
                 var find = JSON.parse(xhr.responseText);
-                document.getElementById("currentPrimes").innerHTML = find.primes;
+                document.getElementById(id+"Result").innerHTML = find.primes;
             } else {
-                document.getElementById("currentPrimes").innerHTML = "Ошибка:<br/>" +
+                document.getElementById(id+"Result").innerHTML = "Ошибка:<br/>" +
                         "Код:<br/>" + xhr.status +
                         "Сообщение:<br/>" + xhr.statusText;
             }
 
         };
 
-        document.getElementById("currentNumber").innerHTML = number;
-        document.getElementById("currentPrimes").innerHTML = 'Вычисляем...'; // (2)
-        document.getElementById("findPrimes").disabled = true;
+        document.getElementById(id+"CurrentNumber").innerHTML = number;
+        document.getElementById(id+"Result").innerHTML = 'Вычисляем...'; // (2)
+        document.getElementById(id+"FindButton").disabled = true;
     }
 </script>
 </body>
