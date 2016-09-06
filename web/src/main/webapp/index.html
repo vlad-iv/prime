@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Простые множители</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<h1>Простые множители</h1>
+<label for="number">Введите число: </label>
+<input id="number" name="number" value="10"/>
+<br/>
+<button id="findPrimes" onclick="findPrimes();">Найти простые множители</button>
+<br/>
+<h3>Простые множителя для числа: <span id="currentNumber"></span></h3>
+
+<p id="currentPrimes"></p>
+
+<script>
+    function findPrimes() {
+        var number = document.getElementById("number").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/rest/prime/find/" + number, true);
+        xhr.send();
+        xhr.onreadystatechange = function onFindPrimes() {
+            if (xhr.readyState != 4) {
+                return;
+            }
+
+            document.getElementById("findPrimes").disabled = false;
+
+            if (xhr.status == 200) {
+                var find = JSON.parse(xhr.responseText);
+                document.getElementById("currentPrimes").innerHTML = find.primes;
+            } else {
+                document.getElementById("currentPrimes").innerHTML = "Ошибка:<br/>" +
+                        "Код:<br/>" + xhr.status +
+                        "Сообщение:<br/>" + xhr.statusText;
+            }
+
+        };
+
+        document.getElementById("currentNumber").innerHTML = number;
+        document.getElementById("currentPrimes").innerHTML = 'Вычисляем...'; // (2)
+        document.getElementById("findPrimes").disabled = true;
+    }
+</script>
+</body>
+</html>
