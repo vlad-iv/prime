@@ -1,5 +1,5 @@
 [![Build Status](https://img.shields.io/travis/vlad-iv/prime/master.svg)](https://travis-ci.org/vlad-iv/prime)
-[![Build status](https://img.shields.io/appveyor/ci/vlad-iv/prime/master.svg)](https://ci.appveyor.com/project/vlad-iv/takes/prime/master)
+[![Build status](https://img.shields.io/appveyor/ci/vlad-iv/prime/master.svg)](https://ci.appveyor.com/project/vlad-iv/prime/branch/master)
 # Spring Web MVC приложение, раскладывающее число на простые множители
 
 Модули:
