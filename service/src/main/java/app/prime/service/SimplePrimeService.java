@@ -1,8 +1,9 @@
 package app.prime.service;
 
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.stereotype.Service;
 
 /**
  * Раскладываем число на простые множители

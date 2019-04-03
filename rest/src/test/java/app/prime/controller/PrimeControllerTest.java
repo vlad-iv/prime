@@ -2,13 +2,15 @@ package app.prime.controller;
 
 import app.prime.model.PrimeList;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
-import java.util.Collections;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.Collections;
+
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
 import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;

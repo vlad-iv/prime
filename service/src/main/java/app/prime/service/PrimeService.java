@@ -7,5 +7,6 @@ import java.util.List;
  */
 public interface PrimeService {
     List<Long> findPrimeDivides(long number);
+
     boolean isPrime(long number);
 }
