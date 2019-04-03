@@ -3,11 +3,12 @@ package app.prime.controller;
 import app.prime.model.PrimeList;
 import app.prime.model.PrimeResult;
 import app.prime.service.PrimeService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * Раскладываем число на простые множители

@@ -2,9 +2,11 @@ package app.prime;
 
 import app.prime.service.PrimeService;
 import app.prime.service.SimplePrimeService;
-import java.util.Collections;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Collections;
+
 import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
 import static org.hamcrest.CoreMatchers.is;
@@ -14,6 +16,7 @@ import static org.junit.Assert.assertTrue;
 
 public class SimplePrimeServiceTest {
     PrimeService primeService;
+
     @Before
     public void setUp() {
         primeService = new SimplePrimeService();

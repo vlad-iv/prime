@@ -10,12 +10,15 @@ public class PrimeList {
 
     public PrimeList() {
     }
+
     public PrimeList(final List<Long> primes) {
         this.primes = primes;
     }
+
     public List<Long> getPrimes() {
         return primes;
     }
+
     public void setPrimes(final List<Long> primes) {
         this.primes = primes;
     }
