@@ -14,6 +14,7 @@ install:
   - cmd: SET JAVA_OPTS=-Xmx4g
   - cmd: mvn --version
   - cmd: java -version
+  - cmd: git config --global core.autocrlf true
 build_script:
   - mvn clean package -B -Dmaven.test.skip=true
 test_script:
