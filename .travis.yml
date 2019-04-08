@@ -11,10 +11,12 @@ cache:
     - '$HOME/.sonar/cache'
 script:
   - mvn -version
-  - mvn clean install --errors --batch-mode
+  - mvn clean install -Psonar -Pjacoco --errors --batch-mode
 env:
   global:
     - MAVEN_OPTS="-Xmx256m"
     - JAVA_OPTS="-Xmx256m"
 jdk:
   - oraclejdk8
+after_success:
+  - "bash <(curl -s https://codecov.io/bash)"
