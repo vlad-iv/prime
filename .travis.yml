@@ -11,7 +11,7 @@ cache:
     - '$HOME/.sonar/cache'
 script:
   - mvn -version
-  - mvn clean install -Psonar -Pjacoco --errors --batch-mode
+  - mvn clean install sonar:sonar -Psonar -Pjacoco --errors --batch-mode
 env:
   global:
     - MAVEN_OPTS="-Xmx256m"

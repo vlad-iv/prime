@@ -161,14 +161,14 @@
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
                     <version>3.6.0.1398</version>
-                    <executions>
-                        <execution>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>sonar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
+                    <!--<executions>-->
+                        <!--<execution>-->
+                            <!--<phase>package</phase>-->
+                            <!--<goals>-->
+                                <!--<goal>sonar</goal>-->
+                            <!--</goals>-->
+                        <!--</execution>-->
+                    <!--</executions>-->
                 </plugin>
                 <plugin>
                     <groupId>org.jacoco</groupId>
