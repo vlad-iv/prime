@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
 /**
  * Раскладываем число на простые множители
  */
@@ -19,13 +21,13 @@ public class PrimeController {
     @Autowired
     PrimeService primeService;
 
-    @RequestMapping("/find/{number}")
+    @RequestMapping(value = "/find/{number}", method = GET)
     public PrimeList findPrimes(@PathVariable("number") long number) {
         List<Long> primes = primeService.findPrimeDivides(number);
         return new PrimeList(primes);
     }
 
-    @RequestMapping("/check/{number}")
+    @RequestMapping(value = "/check/{number}", method = GET)
     public PrimeResult checkPrime(@PathVariable("number") long number) {
         boolean prime = primeService.isPrime(number);
         return new PrimeResult(prime);

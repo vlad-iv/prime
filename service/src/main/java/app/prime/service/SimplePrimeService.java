@@ -16,10 +16,13 @@ public class SimplePrimeService implements PrimeService {
      */
     public List<Long> findPrimeDivides(final long number) {
 
-        final List<Long> primes = new ArrayList<Long>();
+        final List<Long> primes = new ArrayList<>();
 
         long divide = number;
         for (long l = 2; l <= number; l++) {
+            if (divide == 1) {
+                break;
+            }
             if (!isPrime(l)) {
                 continue;
             }
@@ -27,9 +30,6 @@ public class SimplePrimeService implements PrimeService {
             while (divide % l == 0) {
                 divide /= l;
                 primes.add(l);
-            }
-            if (divide == 1) {
-                break;
             }
         }
         return primes;

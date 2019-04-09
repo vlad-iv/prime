@@ -25,7 +25,7 @@ public class PrimeControllerTest {
     PrimeController primeController;
 
     @Before
-    public void startUp() throws Exception {
+    public void startUp() {
         RestAssuredMockMvc.standaloneSetup(primeController);
     }
 
