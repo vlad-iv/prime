@@ -16,8 +16,7 @@ env:
   global:
     - MAVEN_OPTS="-Xmx256m"
     - JAVA_OPTS="-Xmx256m"
-    - CODECOV_TOKEN="$CODECOV_TOKEN"
 jdk:
   - oraclejdk8
 after_success:
-  - "bash <(curl -s https://codecov.io/bash)"
+  - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
