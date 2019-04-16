@@ -3,7 +3,9 @@ package app.prime.service;
 import java.util.List;
 
 /**
- * @author Vladimir Ivanov
+ * Expand a number into prime factors.
+ *
+ * @author Vladimir Ivanov (ivanov.vladimir.l@gmail.com)
  */
 public interface PrimeService {
     List<Long> findPrimeDivides(long number);

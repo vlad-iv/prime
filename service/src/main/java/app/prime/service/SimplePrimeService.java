@@ -1,19 +1,22 @@
 package app.prime.service;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Раскладываем число на простые множители
- * Простая реализация перебором
+ * Expand the number into prime factors by brute force.
+ *
+ * @author Vladimir Ivanov (ivanov.vladimir.l@gmail.com)
  */
 @Service
 public class SimplePrimeService implements PrimeService {
     /**
-     * Список простых множителей
+     * List pime factors.
      */
+    @Cacheable
     public List<Long> findPrimeDivides(final long number) {
 
         final List<Long> primes = new ArrayList<>();
@@ -36,8 +39,9 @@ public class SimplePrimeService implements PrimeService {
     }
 
     /**
-     * Проверяем на простое число
+     * Check a number is prime.
      */
+    @Cacheable
     public boolean isPrime(final long number) {
         for (long l = 2; l < number; l++) {
             if (number % l == 0) {
