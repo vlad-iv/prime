@@ -4,6 +4,7 @@ import app.prime.model.PrimeList;
 import app.prime.model.PrimeResult;
 import app.prime.service.PrimeFactorService;
 import app.prime.service.PrimeService;
+import app.prime.service.WithCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +21,10 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @RequestMapping("/prime")
 public class PrimeController {
     @Autowired
+    @WithCache
     PrimeService primeService;
     @Autowired
+    @WithCache
     PrimeFactorService primeFactorService;
 
     @RequestMapping(value = "/find/{number}", method = GET)

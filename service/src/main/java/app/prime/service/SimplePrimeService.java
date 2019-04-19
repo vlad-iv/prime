@@ -1,6 +1,5 @@
 package app.prime.service;
 
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,11 +8,11 @@ import org.springframework.stereotype.Service;
  * @author Vladimir Ivanov (ivanov.vladimir.l@gmail.com)
  */
 @Service
+@WithOutCache
 public class SimplePrimeService implements PrimeService {
     /**
      * Check a number is prime.
      */
-    @Cacheable
     public boolean isPrime(final long number) {
         for (long l = 2; l < number; l++) {
             if (number % l == 0) {
