@@ -1,5 +1,7 @@
 package app.prime.service;
 
+import app.prime.Logged;
+import app.prime.WithOutCache;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,6 +15,7 @@ public class SimplePrimeService implements PrimeService {
     /**
      * Check a number is prime.
      */
+    @Logged
     public boolean isPrime(final long number) {
         for (long l = 2; l < number; l++) {
             if (number % l == 0) {

@@ -1,10 +1,11 @@
 package app.prime.controller;
 
+import app.prime.Logged;
+import app.prime.WithCache;
 import app.prime.model.PrimeList;
 import app.prime.model.PrimeResult;
 import app.prime.service.PrimeFactorService;
 import app.prime.service.PrimeService;
-import app.prime.service.WithCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,12 +28,14 @@ public class PrimeController {
     @WithCache
     PrimeFactorService primeFactorService;
 
+    @Logged
     @RequestMapping(value = "/find/{number}", method = GET)
     public PrimeList findPrimes(@PathVariable("number") long number) {
         List<Long> primes = primeFactorService.findPrimeFactors(number);
         return new PrimeList(primes);
     }
 
+    @Logged
     @RequestMapping(value = "/check/{number}", method = GET)
     public PrimeResult checkPrime(@PathVariable("number") long number) {
         boolean prime = primeService.isPrime(number);

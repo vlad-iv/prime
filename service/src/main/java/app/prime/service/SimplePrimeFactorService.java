@@ -1,5 +1,8 @@
 package app.prime.service;
 
+import app.prime.Logged;
+import app.prime.WithCache;
+import app.prime.WithOutCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +28,7 @@ public class SimplePrimeFactorService implements PrimeFactorService {
     /**
      * List prime factors.
      */
+    @Logged
     public List<Long> findPrimeFactors(final long number) {
 
         final List<Long> primes = new ArrayList<>();

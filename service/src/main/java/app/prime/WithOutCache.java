@@ -1,4 +1,4 @@
-package app.prime.service;
+package app.prime;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -12,5 +12,5 @@ import java.lang.annotation.RetentionPolicy;
  */
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)
-public @interface WithCache {
+public @interface WithOutCache {
 }
