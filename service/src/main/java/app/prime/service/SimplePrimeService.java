@@ -1,7 +1,7 @@
 package app.prime.service;
 
 import app.prime.Logged;
-import app.prime.WithOutCache;
+import app.prime.cache.WithCache;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * @author Vladimir Ivanov (ivanov.vladimir.l@gmail.com)
  */
 @Service
-@WithOutCache
+@WithCache
 public class SimplePrimeService implements PrimeService {
     /**
      * Check a number is prime.

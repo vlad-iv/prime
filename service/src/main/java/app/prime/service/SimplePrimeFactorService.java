@@ -1,8 +1,7 @@
 package app.prime.service;
 
 import app.prime.Logged;
-import app.prime.WithCache;
-import app.prime.WithOutCache;
+import app.prime.cache.WithCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,14 +14,12 @@ import java.util.List;
  * @author Vladimir Ivanov (ivanov.vladimir.l@gmail.com)
  */
 @Service
-@WithOutCache
+@WithCache
 public class SimplePrimeFactorService implements PrimeFactorService {
-    final PrimeService primeService;
-
     @Autowired
-    @WithCache
-    public SimplePrimeFactorService(PrimeService primeService) {
-        this.primeService = primeService;
+    PrimeService primeService;
+
+    public SimplePrimeFactorService() {
     }
 
     /**
@@ -30,7 +27,7 @@ public class SimplePrimeFactorService implements PrimeFactorService {
      */
     @Logged
     public List<Long> findPrimeFactors(final long number) {
-
+        //SimplePrimeFactorService proxy = (SimplePrimeFactorService) AopContext.currentProxy();
         final List<Long> primes = new ArrayList<>();
 
         long divide = number;

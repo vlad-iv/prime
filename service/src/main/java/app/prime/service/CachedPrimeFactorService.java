@@ -1,9 +1,7 @@
 package app.prime.service;
 
-import app.prime.WithCache;
-import app.prime.WithOutCache;
+import app.prime.cache.WithOutCache;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
@@ -14,8 +12,6 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author Vladimir Ivanov (ivanov.vladimir.l@gmail.com)
  */
-@Service
-@WithCache
 public class CachedPrimeFactorService implements PrimeFactorService {
     private final PrimeFactorService primeFactorService;
     private final Map<Long, List<Long>> cache;

@@ -19,7 +19,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "/test-prime-context.xml")
+@ContextConfiguration(classes = TestConfig.class)
 public class PrimeControllerTest {
     @Autowired
     PrimeController primeController;

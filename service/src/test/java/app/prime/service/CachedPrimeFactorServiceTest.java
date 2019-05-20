@@ -25,12 +25,9 @@ public class CachedPrimeFactorServiceTest {
     @Before
     public void setUp() {
         cache = new ConcurrentHashMap<>();
-        primeFactorService = new CachedPrimeFactorService(
-                new SimplePrimeFactorService(
-                        new SimplePrimeService()
-                ),
-                cache
-        );
+        SimplePrimeFactorService primeFactorService = new SimplePrimeFactorService();
+        primeFactorService.primeService = new SimplePrimeService();
+        this.primeFactorService = new CachedPrimeFactorService(primeFactorService, cache);
     }
 
     @Test

@@ -1,7 +1,6 @@
 package app.prime.controller;
 
 import app.prime.Logged;
-import app.prime.WithCache;
 import app.prime.model.PrimeList;
 import app.prime.model.PrimeResult;
 import app.prime.service.PrimeFactorService;
@@ -22,10 +21,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @RequestMapping("/prime")
 public class PrimeController {
     @Autowired
-    @WithCache
     PrimeService primeService;
     @Autowired
-    @WithCache
     PrimeFactorService primeFactorService;
 
     @Logged

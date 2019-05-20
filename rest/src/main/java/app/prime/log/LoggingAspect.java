@@ -19,7 +19,11 @@ import java.util.Arrays;
 public class LoggingAspect {
     @Around("execution(* *(..)) && @annotation(app.prime.Logged)")
     public Object logAroundLoggedMethod(ProceedingJoinPoint joinPoint) throws Throwable {
-        log.info("Call: {}.{}({})", joinPoint.getTarget().getClass().getSimpleName(), joinPoint.getSignature().getName(), Arrays.toString(joinPoint.getArgs()));
+        Class<?> target = joinPoint.getTarget().getClass();
+        if (target.getName().contains("$$")) {
+            target = target.getSuperclass();
+        }
+        log.info("Call: {}.{}({})", target.getSimpleName(), joinPoint.getSignature().getName(), Arrays.toString(joinPoint.getArgs()));
         return joinPoint.proceed();
     }
 }

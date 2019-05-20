@@ -11,12 +11,12 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class SimplePrimeFactorServiceTest {
-    PrimeFactorService primeFactorService;
+    SimplePrimeFactorService primeFactorService;
 
     @Before
     public void setUp() {
-        primeFactorService = new SimplePrimeFactorService(new SimplePrimeService());
-
+        primeFactorService = new SimplePrimeFactorService();
+        primeFactorService.primeService = new SimplePrimeService();
     }
 
     @Test
