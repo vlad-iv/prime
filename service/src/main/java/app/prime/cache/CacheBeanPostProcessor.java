@@ -2,7 +2,6 @@ package app.prime.cache;
 
 import lombok.extern.log4j.Log4j2;
 import org.jooq.lambda.Unchecked;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.cglib.proxy.Callback;
 import org.springframework.cglib.proxy.Enhancer;
@@ -26,7 +25,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class CacheBeanPostProcessor implements BeanPostProcessor {
     @Override
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+    public Object postProcessBeforeInitialization(Object bean, String beanName) {
         if (bean.getClass().isAnnotationPresent(WithCache.class)) {
             log.debug("Wrapping with cache " + bean);
             return proxy(bean);

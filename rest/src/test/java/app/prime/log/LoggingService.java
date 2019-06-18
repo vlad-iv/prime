@@ -15,11 +15,11 @@ public class LoggingService {
     AtomicInteger count = new AtomicInteger();
 
     @Logged
-    public String getLog() {
-        return "log - " + count.incrementAndGet();
+    public void getLog() {
+        count.incrementAndGet();
     }
 
-    public String getNonLog() {
-        return "log - " + count.incrementAndGet();
+    public void getNonLog() {
+        count.incrementAndGet();
     }
 }
