@@ -18,12 +18,8 @@ public class CachedPrimeService implements PrimeService {
     @Autowired
     @WithOutCache
     public CachedPrimeService(PrimeService primeService) {
-        this(primeService, new ConcurrentHashMap<>());
-    }
-
-    CachedPrimeService(PrimeService primeService, Map<Long, Boolean> cache) {
         this.primeService = primeService;
-        this.cache = cache;
+        this.cache = new ConcurrentHashMap<>();
     }
 
     /**
@@ -36,5 +32,9 @@ public class CachedPrimeService implements PrimeService {
         boolean prime = primeService.isPrime(number);
         cache.put(number, prime);
         return prime;
+    }
+
+    public Map<Long, Boolean> getCache() {
+        return cache;
     }
 }

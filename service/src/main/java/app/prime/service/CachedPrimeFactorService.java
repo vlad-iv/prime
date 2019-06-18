@@ -19,12 +19,8 @@ public class CachedPrimeFactorService implements PrimeFactorService {
     @Autowired
     @WithOutCache
     public CachedPrimeFactorService(PrimeFactorService primeFactorService) {
-        this(primeFactorService, new ConcurrentHashMap<>());
-    }
-
-    CachedPrimeFactorService(PrimeFactorService primeFactorService, Map<Long, List<Long>> cache) {
         this.primeFactorService = primeFactorService;
-        this.cache = cache;
+        this.cache = new ConcurrentHashMap<>();
     }
 
     /**
@@ -37,5 +33,9 @@ public class CachedPrimeFactorService implements PrimeFactorService {
         List<Long> factors = primeFactorService.findPrimeFactors(number);
         cache.put(number, factors);
         return factors;
+    }
+
+    Map<Long, List<Long>> getCache() {
+        return cache;
     }
 }

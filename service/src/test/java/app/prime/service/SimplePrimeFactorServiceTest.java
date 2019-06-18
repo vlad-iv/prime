@@ -34,5 +34,6 @@ public class SimplePrimeFactorServiceTest {
         assertThat(primeFactorService.findPrimeFactors(8), is(asList(2L, 2L, 2L)));
         assertThat(primeFactorService.findPrimeFactors(9), is(asList(3L, 3L)));
         assertThat(primeFactorService.findPrimeFactors(10), is(asList(2L, 5L)));
+        assertThat(primeFactorService.findPrimeFactors(99), is(asList(3L, 3L, 11L)));
     }
 }

@@ -19,15 +19,13 @@ public class SimplePrimeFactorService implements PrimeFactorService {
     @Autowired
     PrimeService primeService;
 
-    public SimplePrimeFactorService() {
-    }
-
     /**
      * List prime factors.
+     * For call cached service
+     * SimplePrimeFactorService proxy = (SimplePrimeFactorService) AopContext.currentProxy();
      */
     @Logged
     public List<Long> findPrimeFactors(final long number) {
-        //SimplePrimeFactorService proxy = (SimplePrimeFactorService) AopContext.currentProxy();
         final List<Long> primes = new ArrayList<>();
 
         long divide = number;

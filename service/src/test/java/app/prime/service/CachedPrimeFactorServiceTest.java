@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Map;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
@@ -20,14 +20,14 @@ import static org.junit.Assert.assertTrue;
  */
 public class CachedPrimeFactorServiceTest {
     private CachedPrimeFactorService primeFactorService;
-    private ConcurrentHashMap<Long, List<Long>> cache;
+    private Map<Long, List<Long>> cache;
 
     @Before
     public void setUp() {
-        cache = new ConcurrentHashMap<>();
         SimplePrimeFactorService primeFactorService = new SimplePrimeFactorService();
         primeFactorService.primeService = new SimplePrimeService();
-        this.primeFactorService = new CachedPrimeFactorService(primeFactorService, cache);
+        this.primeFactorService = new CachedPrimeFactorService(primeFactorService);
+        cache = this.primeFactorService.getCache();
     }
 
     @Test

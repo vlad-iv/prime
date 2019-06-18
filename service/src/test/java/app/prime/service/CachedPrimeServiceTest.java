@@ -3,7 +3,7 @@ package app.prime.service;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Map;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -15,12 +15,12 @@ import static org.junit.Assert.assertTrue;
  */
 public class CachedPrimeServiceTest {
     private CachedPrimeService primeService;
-    private ConcurrentHashMap<Long, Boolean> cache;
+    private Map<Long, Boolean> cache;
 
     @Before
     public void setUp() {
-        cache = new ConcurrentHashMap<>();
-        primeService = new CachedPrimeService(new SimplePrimeService(), cache);
+        primeService = new CachedPrimeService(new SimplePrimeService());
+        cache = primeService.getCache();
     }
 
     @Test
