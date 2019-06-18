@@ -13,8 +13,4 @@ public class PrimeResult {
     public boolean isResult() {
         return result;
     }
-
-    public void setResult(final boolean result) {
-        this.result = result;
-    }
 }
